@@ -30,18 +30,22 @@ IF USE DOCKER. RUN COMMAND
 4. phpmyadmin run port 8990 | user : root : password: password
 
 
-Nuxt
-cd app && npm install
+HOW TO RUN NUXT
+1. cd app
+2. npm install
+3. npm run dev
 
 ==== Import Database ====
 1. db1
 2. db2
 
-
 User for test login
+
 Email: admin@gmail.com
 Pass: password@1234
 
+
+==============================================================
 Nuxt Module & Plugin
 
 https://bootstrap-vue.org/
