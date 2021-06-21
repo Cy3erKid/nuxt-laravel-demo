@@ -39,11 +39,11 @@ HOW TO RUN NUXT
 1. db1
 2. db2
 
-User for test login
+
+==== User for test login ====
 
 Email: admin@gmail.com
 Pass: password@1234
-
 
 ==============================================================
 Nuxt Module & Plugin
@@ -59,7 +59,6 @@ https://vuelidate.js.org/
 
 
 PHP Libraries
-
 https://docs.laravel-excel.com/3.1/getting-started/
 https://phpspreadsheet.readthedocs.io/en/latest/
 https://laravel.com/docs/8.x/sanctum#introduction
