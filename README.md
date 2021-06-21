@@ -11,8 +11,8 @@ Demo Laravel api &amp; NuxtJs
 8. Search -> done
 9. Export File -> done (excel file. another file Please see doc in Lib PHP)
 
-Feature  (Not Complete)
-2 Table Request in one page
+Feature  (Not Complete)<br>
+2 Table Request in one page<br>
 Multiple language (NuxtJs)
 
 
