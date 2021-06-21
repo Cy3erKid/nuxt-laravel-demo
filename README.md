@@ -1,17 +1,20 @@
 # nuxt-laravel-demo
 Demo Laravel api &amp; NuxtJs
 
-Api Authen use Laravel Santumc
-CSRF Prevent -> Laravel Santumc
-Nuxt Js
-Bootstrap Vue -> done
-DayJs -> done
-Numeral -> done
-Paginate -> done
-Search -> done
-Export File -> done (excel file. another file Please see doc in Lib PHP)
-2 Table Request in one page (Not Complete)
-Multiple language (Not Complete)
+1. Api Authen use Laravel Santumc
+2. CSRF Prevent -> Laravel Santumc
+3. Nuxt Js
+4. Bootstrap Vue -> done
+5. DayJs -> done
+6. Numeral -> done
+7. Paginate -> done
+8. Search -> done
+9. Export File -> done (excel file. another file Please see doc in Lib PHP)
+
+Feature  (Not Complete)
+2 Table Request in one page
+Multiple language (NuxtJs)
+
 
 === HOW TO RUN APPLICATION ===
 Laravel
