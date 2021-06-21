@@ -58,7 +58,7 @@ https://github.com/nuxt-community/dayjs-module -> ^1.4.0 <br>
 https://vuelidate.js.org/ <br>
 
 
-=== PHP Libraries ===
+=== PHP Libraries === <br>
 https://docs.laravel-excel.com/3.1/getting-started/ <br>
 https://phpspreadsheet.readthedocs.io/en/latest/ <br>
 https://laravel.com/docs/8.x/sanctum#introduction <br>
