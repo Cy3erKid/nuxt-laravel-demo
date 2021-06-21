@@ -45,20 +45,20 @@ HOW TO RUN NUXT
 Email: admin@gmail.com
 Pass: password@1234
 
-==============================================================
-Nuxt Module & Plugin
 
-https://bootstrap-vue.org/
-https://www.npmjs.com/package/js-file-download
-https://vuex.vuejs.org/
-http://numeraljs.com/
-https://dev.auth.nuxtjs.org/ -> v5
-https://axios.nuxtjs.org/    ->  5.13.6
-https://github.com/nuxt-community/dayjs-module -> ^1.4.0
-https://vuelidate.js.org/
+=== Nuxt Module & Plugin ===
+
+https://bootstrap-vue.org/ <br>
+https://www.npmjs.com/package/js-file-download <br>
+https://vuex.vuejs.org/ <br>
+http://numeraljs.com/ <br>
+https://dev.auth.nuxtjs.org/ -> v5 <br>
+https://axios.nuxtjs.org/    ->  5.13.6 <br>
+https://github.com/nuxt-community/dayjs-module -> ^1.4.0 <br>
+https://vuelidate.js.org/ <br>
 
 
-PHP Libraries
-https://docs.laravel-excel.com/3.1/getting-started/
-https://phpspreadsheet.readthedocs.io/en/latest/
-https://laravel.com/docs/8.x/sanctum#introduction
+=== PHP Libraries ===
+https://docs.laravel-excel.com/3.1/getting-started/ <br>
+https://phpspreadsheet.readthedocs.io/en/latest/ <br>
+https://laravel.com/docs/8.x/sanctum#introduction <br>
