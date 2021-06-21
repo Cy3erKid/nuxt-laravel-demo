@@ -1,0 +1,65 @@
+version: '3.6'
+services: 
+    nginx:
+        image: nginx:alpine
+        container_name: nginx_container
+        restart: unless-stopped
+        tty: true
+        ports: 
+            - "80:80"
+        volumes:
+            - ./nginx:/etc/nginx/conf.d/
+            - ./api/:/var/www/html/api
+        networks: 
+            - web-networks
+        depends_on: 
+            - web_api
+    
+    # php
+    web_api:
+        image: web-api:1.0
+        build: 
+            context: ./api
+            dockerfile: Dockerfile
+        container_name: laravel-api
+        restart: unless-stopped
+        tty: true
+        volumes:
+            - ./api/:/var/www/html/api
+            - ./php/local.ini:/usr/local/etc/php/conf.d/local.ini
+        networks: 
+            - web-networks
+
+    database:
+        image: mariadb:10.4
+        restart: always
+        environment: 
+            - TZ=Asia/Bangkok
+            - MYSQL_ROOT_USER=root
+            - MYSQL_ROOT_PASSWORD=password
+            - MYSQL_USER=admin
+            - MYSQL_PASSWORD=p@ssw0rd
+        networks: 
+            - web-networks
+        volumes: 
+            - ./database/mariadb/mydb.conf:/etc/mysql/conf.d/custom.cnf
+            - ./database/mariadb/initdb/:/docker-entrypoint-initdb.d
+            - ./database/mariadb/master/:/var/lib/mysql
+
+    phpmyadmin:
+        image: phpmyadmin
+        restart: always
+        environment: 
+            - PMA_ARBITRARY=1
+            - PMA_HOST=database
+            - UPLOAD_LIMIT=20M
+        depends_on: 
+            - database
+        ports: 
+            - "8990:80"
+        networks: 
+            - web-networks
+
+networks: 
+    web-networks:
+        driver: bridge

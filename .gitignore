@@ -2,5 +2,5 @@ node_modules/
 vendor/
 .env
 composer.lock
-package
+package-lock.json
 database/mariadb/master/*
