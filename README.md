@@ -35,7 +35,8 @@ HOW TO RUN NUXT
 2. npm install
 3. npm run dev
 
-==== Import Database ====
+==== Import Database ====<br>
+Folder db <br>
 1. db1
 2. db2
 
