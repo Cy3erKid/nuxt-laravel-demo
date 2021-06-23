@@ -1,28 +1,16 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Auth\AuthenticationException;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class LoginController extends Controller
+class AuthController extends Controller
 {
-    //
-    // public function __invoke(Request $request)
-    // {
-    //     $credentials = array(
-    //         'email' => $request->email,
-    //         'password' => $request->password
-    //     );
-
-    //     // Custom Message if user login fail
-    //     if(!auth()->attempt($credentials)){
-    //        return response()->json(['data' => 'Login Fail'],401);
-    //     }
-    // }
-
+    /**
+     * Create a new AuthController instance.
+     *
+     * @return void
+     */
     public function __construct()
     {
         $this->middleware('auth:api', ['except' => ['login']]);
@@ -33,9 +21,9 @@ class LoginController extends Controller
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function login()
+    public function login(Request $request)
     {
-        $credentials = request(['email', 'password']);
+        $credentials = $request->only('email', 'password');
 
         if (! $token = auth()->attempt($credentials)) {
             return response()->json(['error' => 'Unauthorized'], 401);
@@ -91,12 +79,4 @@ class LoginController extends Controller
             'expires_in' => auth()->factory()->getTTL() * 60
         ]);
     }
-
-    // laravel
-
-    // public function logout(Request $request){
-    //     //Auth::logout();
-    //     $request->session()->invalidate();
-    //     $request->session()->regenerateToken();
-    // }
 }

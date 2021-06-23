@@ -1,9 +1,7 @@
 <?php
 
-use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProductController;
-use App\Models\Product;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,10 +18,49 @@ use Illuminate\Support\Facades\Route;
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return response()->json($request->user());
 // });
-Route::get('login',function() {
-    return response()->json(['message' => 'Unauthorized'],401);
+// Route::get('login',function() {
+//     return response()->json(['message' => 'Unauthorized'],401);
+// });
+// laravel sanctum
+//Route::post('login',LoginController::class)->name('login');
+// Route::group([
+//     'middleware' => 'api',
+//     'prefix' => 'auth'
+// ], function ($router) {
+//     Route::post('login',[LoginController::class,'login'])->name('login');
+//     Route::post('logout', [LoginController::class,'logout'])->name('logout');
+//     Route::post('refresh', [LoginController::class,'refresh'])->name('refresh');
+//     Route::post('user', [LoginController::class,'user'])->name('user');
+// });
+
+// Route::group([
+
+//     'middleware' => ['api', 'auth:api'],
+//     'prefix' => 'auth'
+ 
+//  ], function ($router) {
+ 
+//     Route::post('login', 'AuthController@login')->withoutMiddleware(['auth:api']);
+//      Route::post('logout', 'AuthController@logout');
+//      Route::post('refresh', 'AuthController@refresh')->withoutMiddleware(['auth:api']);
+//      Route::get('user', 'AuthController@me');
+ 
+//  });
+Route::group([
+
+    'middleware' => 'api',
+    'prefix' => 'auth'
+
+], function ($router) {
+
+    Route::post('login', [AuthController::class,'login'])->name('login');
+    Route::post('logout', [AuthController::class,'logout']);
+    Route::post('refresh', [AuthController::class,'refresh']);
+    Route::get('me', [AuthController::class,'me']);
+
 });
-Route::post('login',LoginController::class)->name('login');
+
+
 
 
 Route::group(['prefix' => 'products'],function() {
@@ -31,13 +68,12 @@ Route::group(['prefix' => 'products'],function() {
     Route::get('/export/excel',[ProductController::class,'export'])->name('api.product.export-excel');
 });
 
-Route::group(['middleware' => ['auth:sanctum']],function() {
-    Route::get('/user',function (Request $request) {
-        return response()->json($request->user());
-    });
+// Laravel sanctum
+// Route::group(['middleware' => ['auth:sanctum']],function() {
+//     Route::get('/user',function (Request $request) {
+//         return response()->json($request->user());
+//     });
 
-    
+//     Route::post('/logout',[LoginController::class,'logout'])->name('api.logout');
 
-    Route::post('/logout',[LoginController::class,'logout'])->name('api.logout');
-
-});
+// });

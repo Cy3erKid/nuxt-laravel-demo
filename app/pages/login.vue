@@ -178,7 +178,7 @@ export default {
       this.loading = true;
       
       await this.$auth
-        .loginWith("laravelSanctum", {
+        .loginWith("laravelJWT", {
           data: { email: this.form.email, password: this.form.password },
         })
         .then(() => {

@@ -46,27 +46,50 @@ export default {
     '@nuxtjs/dayjs'
   ],
   axios: {
-    withCredentials: true
+    withCredentials: true,
   },
+ 
   auth: {
     strategies: {
-      'laravelSanctum': {
-        provide: 'laravel/sanctum',
+      
+      // 'laravelSanctum': {
+      //   provide: 'laravel/sanctum',
+      //   url: 'http://localhost',
+      //   endpoints: {
+      //     login: {
+      //       url: '/api/login'
+      //     },
+      //     logout: {
+      //       url: '/api/logout'
+      //     },
+      //     user: {
+      //       url: '/api/user'
+      //     },
+      //   },
+      // }
+      'laravelJWT': {
+        provider: 'laravel/jwt',
         url: 'http://localhost',
         endpoints: {
           login: {
-            url: '/api/login'
+            url: '/api/auth/login'
           },
           logout: {
-            url: '/api/logout'
+            url: '/api/auth/logout'
           },
           user: {
-            url: '/api/user'
+            url: '/api/auth/me'
           },
         },
-        
-        
-      }
+        token: {
+          property: 'access_token',
+          maxAge: 60 * 60
+        },
+        refreshToken: {
+          maxAge: 20160 * 60
+        },
+      },
+
     },
     redirect: {
       login: '/login', // redirect if user is not login 
